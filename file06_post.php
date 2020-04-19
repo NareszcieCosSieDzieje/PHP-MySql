@@ -9,7 +9,12 @@
 	<body>
 		
 	<?php
-		if(isSet($_SESSION['QUERY_RES']) && ( $_SESSION['QUERY_RES'] == "Query failed") ){
+
+		if(isSet($_SESSION['QUERY_RES']) && ($_SESSION['QUERY_RES'] == "Connectfailed") ){
+			$_SESSION['QUERY_RES'] = "";
+			echo "<script type='text/javascript'>alert('Błąd połączenia z bazą danych przy dodwaniu użytkownika!');</script>";
+		}
+		else if(isSet($_SESSION['QUERY_RES']) && ( $_SESSION['QUERY_RES'] == "Query failed") ){
 					$_SESSION['QUERY_RES'] = "";
 					echo "<script type='text/javascript'>alert('Błąd dodawania pracownika!');</script>";
 		}

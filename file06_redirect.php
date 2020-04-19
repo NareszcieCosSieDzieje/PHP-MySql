@@ -5,8 +5,10 @@
 	$link = mysqli_connect("localhost", "scott", "tiger", "instytut");
 	
 	if(!$link){
-		printf("Connectfailed:%s\n", mysqli_connect_error());
-		exit();
+		$_SESSION['QUERY_RES'] = "Connectfailed";
+		header("Location: file06_get.php"); 
+		//printf("Connectfailed:%s\n", mysqli_connect_error());
+		//exit();
 	}
 
 	$good = false;
